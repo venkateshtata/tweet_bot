@@ -4,8 +4,10 @@ console.log('bot is running');
   // console.log(config);
 var T = new Twit(config);
 
+var r = Math.floor(Math.random()*100);
+function tweetIt(){
 var tweet = {
-  status:"hello world"
+  status:`bot post${r}`
 }
 
 T.post('statuses/update',tweet,tweeted);
@@ -15,5 +17,10 @@ function tweeted(err, data, response){
     console.log(err);
   }
   else
-  console.log(data);
+  console.log("Bot has posted !");
 }
+}
+
+//tweetIt();
+
+setInterval(tweetIt,1000*20);
